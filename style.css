@@ -1,0 +1,193 @@
+:root{
+    --dark: #374151;
+    --darker: #1f2937;
+    --darkest: #111827;
+    --gray: #6b7280;
+    --light: #EEE;
+    --pink: #EC4899;
+    --purple: #8b5cf6;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Fira-sans',sans-serif;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--dark);
+    color: var(--light);
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    position: relative;
+    color: var(--dark);
+    font-size: 3.5vw;
+    /*-webkit-text-stroke: 0.1vw var(--gray); /*text outline stroke*/
+    text-transform: uppercase;
+}
+
+h1::before{
+    content: attr(data-text);
+    position: absolute;
+    margin-left: 26%;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 90%;
+    color: rgb(249, 220, 220);
+    -webkit-text-stroke: 0vw var(--gray);
+    border-left: 2px solid rgb(249,220,220);
+    overflow: hidden;
+    animation: animate 6s linear infinite;
+}
+
+@keyframes animate{
+
+    0%, 10%, 50%,100%{
+        width: 0;
+    }
+    70%,90%{
+        width: 70%;
+    }
+}
+
+header{
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+header h2{
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+    color: var(--gray);
+}
+
+#formnew{
+    display: flex;
+}
+
+input,button{
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+#task-input{
+    flex: 1 1 0%;
+    background-color: var(--darker);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-right: 1rem;
+    color: var(--light);
+    font-size: 1.25rem;
+}
+
+#task-input::placeholder{
+    color: var(--gray);
+}
+
+#task-submit{
+    color: var(--pink);
+    font-size: 1.25rem;
+    font-weight: 700;
+    background-image: linear-gradient(to right, var(--pink), var(--purple)); /* adds gradient background to the entire button*/
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; /* removes it from the bg and applies gradient only to the text*/
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+#task-submit:hover{
+    opacity: 0.8;
+}
+
+#task-submit:active{
+    opacity:0.6;
+}
+
+main{
+    flex: 1 1 0%;
+    padding: 2rem 1rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.lists{
+    padding: 1rem;
+}
+
+.lists h2{
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--gray);
+    margin-bottom: 1rem;
+}
+
+#tasks .task{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--darkest);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+#tasks .task .content{
+    flex: 1 1 0%;
+}
+#tasks .task .content .text{
+    color: var(--light);
+    font-size: 1.125rem;
+    width: 100%;
+    display: block;
+    transition: 0.4s;
+}
+
+#tasks .task .content .text:not(:read-only){
+    color: var(--pink);
+}
+
+#tasks .task .actions{
+    display: flex;
+    margin: 0 -0.5rem;
+}
+
+.task .actions button{
+    cursor: pointer;
+    margin: 0 0.5rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.4s;
+}
+
+.task .actions button:hover{
+    opacity: 0.8;
+}
+
+.task .actions button:active{
+    opacity:0.6;
+}
+
+.task .actions .edit{
+    background-image: linear-gradient(to right, var(--pink), var(--purple)); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+}
+
+.task .actions .del{
+    color: crimson;
+}
